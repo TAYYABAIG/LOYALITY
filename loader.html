@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/loader.css">
 
 </head>
 
@@ -25,7 +26,6 @@
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-logo">
-            <img src="./assets/images/megaphone.png" alt="" class="logo">
             <span>Loyalty</span> & Referral
         </div>
 
@@ -213,104 +213,13 @@
 
         <!-- Main Content Area -->
         <main class="main-content-wrapper flex-grow-1">
-            <div class="container-fluid">
-
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="page-title mb-0">Create Product Codes</h1>
-
-                    <div class="action-buttons h-75">
-                        <a class="ui-btn ui-btn-dark text-decoration-none " href="productCode.html">
-                            <svg class="me-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
-                                height="20" color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M11.5 8.45596V9L17.5 9C18.4319 9 18.8978 9 19.2654 9.15224C19.7554 9.35523 20.1448 9.74458 20.3478 10.2346C20.5 10.6022 20.5 11.0681 20.5 12C20.5 12.9319 20.5 13.3978 20.3478 13.7654C20.1448 14.2554 19.7554 14.6448 19.2654 14.8478C18.8978 15 18.4319 15 17.5 15H11.5V15.544C11.5 17.6268 11.5 18.6681 10.8997 18.9422C10.2994 19.2163 9.58174 18.5026 8.14642 17.0751L4.58281 13.5311C3.86094 12.8132 3.5 12.4542 3.5 12C3.5 11.5458 3.86094 11.1868 4.58281 10.4689L8.14643 6.92487C9.58175 5.49743 10.2994 4.78372 10.8997 5.05779C11.5 5.33185 11.5 6.37322 11.5 8.45596Z" />
-                            </svg>
-                            Back
-                        </a>
-                    </div>
-                </div>
-
-                <div class="bg-white data-container p-4 row">
-
-                    <ul class="nav nav-tabs custom-tabs" id="settingsTabs" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#general"
-                                type="button">General</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#product-code"
-                                type="button">Product Code</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#referral"
-                                type="button">Referral</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#redemption"
-                                type="button">Redemption</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#smtp"
-                                type="button">SMTP</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#bonus"
-                                type="button">Bonus</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#cities"
-                                type="button">Cities</button>
-                        </li>
-                    </ul>
-
-                    <div class="tab-content p-4 mt-3 border rounded-3 shadow-sm bg-white">
-                        <div class="tab-pane fade show active" id="general">
-
-                            <form action="" class="row">
-
-                                <div class="mb-3 col-md-6">
-                                    <label for="code" class="form-label fw-semibold">Website Name <span
-                                            class="text-danger">*</span></label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">🌐</span>
-                                        <input type="text" class="form-control" id="code"
-                                            placeholder="Enter Website Name" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3 col-md-6">
-                                    <label for="code" class="form-label fw-semibold">Website Name <span
-                                            class="text-danger">*</span></label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-
-                                <div class="mb-4 col-md-6">
-                                    <label for="code" class="form-label fw-semibold">Enable Email Notifications</label>
-                                    <!-- From Uiverse.io by JaydipPrajapati1910 -->
-                                    <div class="toggle-button-cover">
-                                        <div id="button-3" class="button r">
-                                            <input class="checkbox" type="checkbox">
-                                            <div class="knobs"></div>
-                                            <div class="layer"></div>
-                                        </div>
-                                    </div>
-                                    <div id="emailHelp" class="form-text text-danger">Before enabling, make sure you
-                                        have added valid SMTP configurations in the SMTP tab.</div>
-                                </div>
-
-                            </form>
-
-
-                        </div>
-                        <div class="tab-pane fade" id="product-code">Product Code content...</div>
-                        <div class="tab-pane fade" id="referral">Referral content...</div>
-                        <div class="tab-pane fade" id="redemption">Redemption content...</div>
-                        <div class="tab-pane fade" id="smtp">SMTP content...</div>
-                        <div class="tab-pane fade" id="bonus">Bonus content...</div>
-                        <div class="tab-pane fade" id="cities">Cities content...</div>
-                    </div>
-
-
+            <div class="loader-wrapper">
+                <div class="loader"></div>
+                <div class="d-flex gap-3 w-100 justify-content-center align-items-center mt-5" >
+                    <img src="./assets/images/megaphone.png" alt="" class="img">
+                    <h5 class="title mb-0">
+                        Loyalty & Referral
+                    </h5>
                 </div>
             </div>
         </main>
