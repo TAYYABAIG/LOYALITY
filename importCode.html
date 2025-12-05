@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="productCode.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" class="active" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1">
+            <div class="container-fluid">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="page-title mb-0">Import Codes</h1>
+
+                    <div class="action-buttons h-75">
+                        <button class="ui-btn ui-btn-warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16.9503 8.3183C17.198 7.68602 16.5075 6.92738 15.1266 5.41011C13.6701 3.80984 12.92 3.00959 11.9999 3C11.0798 3.00959 10.3297 3.80984 8.8732 5.41011C7.49228 6.92738 6.80182 7.68602 7.04953 8.3183C7.05858 8.34138 7.0684 8.36414 7.07899 8.38653C7.34917 8.95795 8.24467 8.99712 9.99989 8.9998V15.5C9.99989 15.965 9.99989 16.1975 10.051 16.3882C10.1897 16.9059 10.594 17.3102 11.1117 17.4489C11.3024 17.5 11.5349 17.5 11.9999 17.5C12.4648 17.5 12.6973 17.5 12.8881 17.4489C13.4057 17.3102 13.81 16.9059 13.9487 16.3882C13.9999 16.1975 13.9999 15.965 13.9999 15.5V8.9998C15.7551 8.99712 16.6506 8.95796 16.9208 8.38653C16.9314 8.36414 16.9412 8.34138 16.9503 8.3183Z" />
+                                <path d="M4.99998 21H19" />
+                            </svg>
+
+                            Import Codes</button>
+                    </div>
+                </div>
+
+                <section class="bg-white data-container p-4">
+                    <div class="row g-4">
+
+                        <!-- Instructions Section -->
+                        <div class="col-12">
+                            <div class="instruction-card">
+                                <h6 class="instruction-title"><i class="bi bi-file-earmark-text"></i> Import
+                                    Instructions</h6>
+                                <ul>
+                                    <li>Upload an Excel file (.xlsx or .xls) with a single column: <b>code</b>.</li>
+                                    <li>Each code must be <b>8 characters</b>, alphanumeric only.</li>
+                                    <li>No duplicate codes allowed (inside file or database).</li>
+                                    <li>All rows will be validated before import.</li>
+                                    <li>If errors occur, import will stop and display details.</li>
+                                    <li>Maximum file size: <b>2MB</b>.</li>
+                                </ul>
+
+                                <p class="fw-bold mb-1">Example valid codes:</p>
+                                <div class="example-code">AB12CD34</div>
+                                <div class="example-code">ZXCVBN12</div>
+                            </div>
+                        </div>
+
+                        <!-- Upload Section -->
+                        <div class="col-12">
+                            <h5 class="mb-3">Upload Excel File</h5>
+
+                            <div id="dropArea" class="upload-dropzone">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                                <p class="mb-1">Drag & drop your Excel file here</p>
+                                <small class="text-muted">or</small>
+                                <br>
+                                <label class="ui-btn ui-btn-primary mt-2 cursor-pointer">
+                                    Choose File
+                                    <input type="file" id="excelInput" accept=".xls,.xlsx" hidden>
+                                </label>
+
+                                <p id="fileName" class="mt-2 text-secondary"></p>
+                            </div>
+
+                            <!-- <button class="ui-btn ui-btn-primary mt-3">Import</button> -->
+                        </div>
+
+                    </div>
+
+                </section>
+            </div>
+        </main>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>

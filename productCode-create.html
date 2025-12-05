@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="productCode.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Language dropdown with menu -->
+                <!-- <div class="language-dropdown" id="languageDropdown">
+                    <div class="language" onclick="toggleLanguageDropdown()">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" id="currentFlag">
+                        <span id="currentLang">English</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="language-menu">
+                        <a href="#" onclick="selectLanguage('gb', 'English')">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                            English
+                        </a>
+                        <a href="#" onclick="selectLanguage('es', 'Spanish')">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Spanish Flag">
+                            Spanish
+                        </a>
+                        <a href="#" onclick="selectLanguage('fr', 'French')">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="French Flag">
+                            French
+                        </a>
+                        <a href="#" onclick="selectLanguage('de', 'German')">
+                            <img src="https://flagcdn.com/w40/de.png" alt="German Flag">
+                            German
+                        </a>
+                        <a href="#" onclick="selectLanguage('cn', 'Chinese')">
+                            <img src="https://flagcdn.com/w40/cn.png" alt="Chinese Flag">
+                            Chinese
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1">
+            <div class="container-fluid">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="page-title mb-0">Create Product Codes</h1>
+
+                    <div class="action-buttons h-75">
+                        <a class="ui-btn ui-btn-dark text-decoration-none " href="productCode.html">
+                            <svg class="me-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                height="20" color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M11.5 8.45596V9L17.5 9C18.4319 9 18.8978 9 19.2654 9.15224C19.7554 9.35523 20.1448 9.74458 20.3478 10.2346C20.5 10.6022 20.5 11.0681 20.5 12C20.5 12.9319 20.5 13.3978 20.3478 13.7654C20.1448 14.2554 19.7554 14.6448 19.2654 14.8478C18.8978 15 18.4319 15 17.5 15H11.5V15.544C11.5 17.6268 11.5 18.6681 10.8997 18.9422C10.2994 19.2163 9.58174 18.5026 8.14642 17.0751L4.58281 13.5311C3.86094 12.8132 3.5 12.4542 3.5 12C3.5 11.5458 3.86094 11.1868 4.58281 10.4689L8.14643 6.92487C9.58175 5.49743 10.2994 4.78372 10.8997 5.05779C11.5 5.33185 11.5 6.37322 11.5 8.45596Z" />
+                            </svg>
+                            Back
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white data-container p-4 row">
+
+                    <!-- Code -->
+                    <div class="mb-3 col-md-6">
+                        <label for="code" class="form-label fw-semibold">Code <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">#</span>
+                            <input type="text" class="form-control" id="code" placeholder="Enter your Code"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-6">
+                        <label for="city" class="form-label fw-semibold">City <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">🏙️</span>
+                            <select class="form-select" id="city" aria-label="Select your city" required>
+                                <option selected disabled>Select Your City</option>
+                                <option value="1">City One</option>
+                                <option value="2">City Two</option>
+                                <option value="3">City Three</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- Full Name -->
+                    <div class="mb-3 col-md-6">
+                        <label for="fullName" class="form-label fw-semibold">Full Name <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3 col-md-6">
+                        <label for="email" class="form-label fw-semibold">Email <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">📧</span>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-3 col-md-6">
+                        <label for="phone" class="form-label fw-semibold">Phone <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">📞</span>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="mb-3 col-md-6">
+                        <label for="mobile" class="form-label fw-semibold">Mobile <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">📱</span>
+                            <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- CNIC -->
+                    <div class="mb-3 col-md-6">
+                        <label for="cnic" class="form-label fw-semibold">CNIC <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">🆔</span>
+                            <input type="text" class="form-control" id="cnic" placeholder="Enter your CNIC" required>
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-3 col-md-6">
+                        <label for="gender" class="form-label fw-semibold">Gender <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">⚥</span>
+                            <select class="form-select" id="gender" required>
+                                <option selected disabled>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="mb-3 col-md-6">
+                        <label for="location" class="form-label fw-semibold">Location <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">📍</span>
+                            <input type="text" class="form-control" id="location" placeholder="Enter your location"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-3 col-md-6">
+                        <label for="address" class="form-label fw-semibold">Address <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">🏠</span>
+                            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address"
+                                required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3 col-md-6">
+                        <label for="password" class="form-label fw-semibold">Password <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">🔒</span>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="mb-3 col-md-6">
+                        <label for="confirmPassword" class="form-label fw-semibold">Confirm Password <span
+                                class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">🔒</span>
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm password" required>
+                        </div>
+                    </div>
+
+                    <!-- Role -->
+                    <div class="mb-3 col-md-6">
+                        <label for="role" class="form-label fw-semibold">Role <span class="text-danger">*</span></label>
+                        <div class="input-group">
+                            <span class="input-group-text">👤</span>
+                            <select class="form-select" id="role" required>
+                                <option selected disabled>Select Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                                <option value="manager">Manager</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 col-md-6">
+                        <label for="code" class="form-label fw-semibold">Active</label>
+                        <!-- From Uiverse.io by JaydipPrajapati1910 -->
+                        <div class="toggle-button-cover">
+                            <div id="button-3" class="button r">
+                                <input class="checkbox" type="checkbox">
+                                <div class="knobs"></div>
+                                <div class="layer"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gap-2 d-flex">
+                        <button type="submit" class="ui-btn ui-btn-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5">
+                                <path
+                                    d="M11.922 4.79004C16.6963 3.16245 19.0834 2.34866 20.3674 3.63261C21.6513 4.91656 20.8375 7.30371 19.21 12.078L18.1016 15.3292C16.8517 18.9958 16.2267 20.8291 15.1964 20.9808C14.9195 21.0216 14.6328 20.9971 14.3587 20.9091C13.3395 20.5819 12.8007 18.6489 11.7231 14.783C11.4841 13.9255 11.3646 13.4967 11.0924 13.1692C11.0134 13.0742 10.9258 12.9866 10.8308 12.9076C10.5033 12.6354 10.0745 12.5159 9.21705 12.2769C5.35111 11.1993 3.41814 10.6605 3.0909 9.64127C3.00292 9.36724 2.97837 9.08053 3.01916 8.80355C3.17088 7.77332 5.00419 7.14834 8.6708 5.89838L11.922 4.79004Z" />
+                            </svg>
+                            Submit</button>
+                        <button type="button" class="ui-btn ui-btn-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M12 2.00012C17.5228 2.00012 22 6.47727 22 12.0001C22 17.523 17.5228 22.0001 12 22.0001C6.47715 22.0001 2 17.523 2 12.0001M8.909 2.48699C7.9 2.8146 6.96135 3.29828 6.12153 3.90953M3.90943 6.12162C3.29806 6.9616 2.81432 7.90044 2.4867 8.90964" />
+                                <path d="M14.9994 15.0001L9 9.00012M9.00064 15.0001L15 9.00012" />
+                            </svg>
+                            Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>

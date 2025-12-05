@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="productCode.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html"  data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Language dropdown with menu -->
+                <!-- <div class="language-dropdown" id="languageDropdown">
+                    <div class="language" onclick="toggleLanguageDropdown()">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" id="currentFlag">
+                        <span id="currentLang">English</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="language-menu">
+                        <a href="#" onclick="selectLanguage('gb', 'English')">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                            English
+                        </a>
+                        <a href="#" onclick="selectLanguage('es', 'Spanish')">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Spanish Flag">
+                            Spanish
+                        </a>
+                        <a href="#" onclick="selectLanguage('fr', 'French')">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="French Flag">
+                            French
+                        </a>
+                        <a href="#" onclick="selectLanguage('de', 'German')">
+                            <img src="https://flagcdn.com/w40/de.png" alt="German Flag">
+                            German
+                        </a>
+                        <a href="#" onclick="selectLanguage('cn', 'Chinese')">
+                            <img src="https://flagcdn.com/w40/cn.png" alt="Chinese Flag">
+                            Chinese
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1">
+            <div class="container-fluid">
+
+                <div class="d-flex justify-content-between mb-4">
+                    <h1 class="page-title mb-0">Product Codes</h1>
+
+                    <div class="action-buttons">
+                        <button class="ui-btn ui-btn-success">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16.9504 12.1817C17.1981 12.814 16.5076 13.5726 15.1267 15.0899C13.6702 16.6902 12.9201 17.4904 12 17.5C11.0799 17.4904 10.3298 16.6902 8.87331 15.0899C7.49239 13.5726 6.80193 12.814 7.04964 12.1817C7.05868 12.1586 7.06851 12.1359 7.0791 12.1135C7.34928 11.542 8.24477 11.5029 10 11.5002V4.99998C10 4.53501 10 4.30253 10.0511 4.11179C10.1898 3.59414 10.5941 3.1898 11.1118 3.05111C11.3025 3 11.535 3 12 3C12.4649 3 12.6974 3 12.8882 3.05111C13.4058 3.1898 13.8102 3.59414 13.9489 4.11179C14 4.30253 14 4.53501 14 4.99998V11.5002C15.7552 11.5029 16.6507 11.542 16.9209 12.1135C16.9315 12.1359 16.9413 12.1586 16.9504 12.1817Z" />
+                                <path d="M5.00006 21H19.0001" />
+                            </svg>
+                            Export Excel</button>
+                        <button class="ui-btn ui-btn-warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M16.9503 8.3183C17.198 7.68602 16.5075 6.92738 15.1266 5.41011C13.6701 3.80984 12.92 3.00959 11.9999 3C11.0798 3.00959 10.3297 3.80984 8.8732 5.41011C7.49228 6.92738 6.80182 7.68602 7.04953 8.3183C7.05858 8.34138 7.0684 8.36414 7.07899 8.38653C7.34917 8.95795 8.24467 8.99712 9.99989 8.9998V15.5C9.99989 15.965 9.99989 16.1975 10.051 16.3882C10.1897 16.9059 10.594 17.3102 11.1117 17.4489C11.3024 17.5 11.5349 17.5 11.9999 17.5C12.4648 17.5 12.6973 17.5 12.8881 17.4489C13.4057 17.3102 13.81 16.9059 13.9487 16.3882C13.9999 16.1975 13.9999 15.965 13.9999 15.5V8.9998C15.7551 8.99712 16.6506 8.95796 16.9208 8.38653C16.9314 8.36414 16.9412 8.34138 16.9503 8.3183Z" />
+                                <path d="M4.99998 21H19" />
+                            </svg>
+
+                            Import Codes</button>
+                        <a class="ui-btn ui-btn-primary text-decoration-none" href="productCode-create.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M12 2.00012C17.5228 2.00012 22 6.47727 22 12.0001C22 17.523 17.5228 22.0001 12 22.0001C6.47715 22.0001 2 17.523 2 12.0001M8.909 2.48699C7.9 2.8146 6.96135 3.29828 6.12153 3.90953M3.90943 6.12162C3.29806 6.9616 2.81432 7.90044 2.4867 8.90964" />
+                                <path d="M12 8.00012V16.0001M16 12.0001L8 12.0001" />
+                            </svg>
+                            Add New</a>
+                    </div>
+                </div>
+
+
+                <!-- Filter Section - Using Bootstrap Dropdowns -->
+                <div class="filter-section mb-4">
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-3 gap-lg-0 h-100">
+
+                        <!-- Filter By Label -->
+                        <div class="filter-item d-flex align-items-center gap-2 px-lg-4 pb-2 pb-lg-0 h-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                color="#9013fe" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M8.85746 12.5061C6.36901 10.6456 4.59564 8.59915 3.62734 7.44867C3.3276 7.09253 3.22938 6.8319 3.17033 6.3728C2.96811 4.8008 2.86701 4.0148 3.32795 3.5074C3.7889 3 4.60404 3 6.23433 3H17.7657C19.396 3 20.2111 3 20.672 3.5074C21.133 4.0148 21.0319 4.8008 20.8297 6.37281C20.7706 6.83191 20.6724 7.09254 20.3726 7.44867C19.403 8.60062 17.6261 10.6507 15.1326 12.5135C14.907 12.6821 14.7583 12.9567 14.7307 13.2614C14.4837 15.992 14.2559 17.4876 14.1141 18.2442C13.8853 19.4657 12.1532 20.2006 11.226 20.8563C10.6741 21.2466 10.0043 20.782 9.93278 20.1778C9.79643 19.0261 9.53961 16.6864 9.25927 13.2614C9.23409 12.9539 9.08486 12.6761 8.85746 12.5061Z" />
+                            </svg>
+                            <span class="filter-label">Filter By</span>
+                        </div>
+
+                        <!-- Date Dropdown -->
+                        <div
+                            class="filter-item d-flex align-items-center justify-content-center px-lg-3 pb-2 pb-lg-0 h-100">
+                            <div class="dropdown filter-dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dateDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Date
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dateDropdown">
+                                    <li><a class="dropdown-item" href="#" data-value="newest">Newest First</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="oldest">Oldest First</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="this-week">This Week</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="this-month">This Month</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Order Type Dropdown -->
+                        <div
+                            class="filter-item d-flex align-items-center justify-content-center px-lg-3 pb-2 pb-lg-0 h-100">
+                            <div class="dropdown filter-dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="orderTypeDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Order Type
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="orderTypeDropdown">
+                                    <li><a class="dropdown-item" href="#" data-value="all">All Types</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="electric">Electric</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="book">Book</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="medicine">Medicine</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="mobile">Mobile</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="watch">Watch</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Order Status Dropdown -->
+                        <div
+                            class="filter-item d-flex align-items-center justify-content-center px-lg-3 pb-2 pb-lg-0 h-100">
+                            <div class="dropdown filter-dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="orderStatusDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Order Status
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="orderStatusDropdown">
+                                    <li><a class="dropdown-item" href="#" data-value="all">All Status</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="completed">Completed</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="processing">Processing</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="rejected">Rejected</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="on-hold">On Hold</a></li>
+                                    <li><a class="dropdown-item" href="#" data-value="in-transit">In Transit</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Reset Filter Button -->
+                        <div class="filter-item d-flex align-items-center h-100 px-lg-3 pb-2 pb-lg-0">
+                            <button class="btn btn-link reset-filter-btn text-decoration-none p-0" id="resetFilterBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                    color="#ef3826" fill="none" class="me-1" stroke="#ef3826" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M10.8386 19.7631H16.4671C19.3324 19.7631 20.7651 19.7631 21.4622 19.0038C21.6578 18.7907 21.8093 18.544 21.9087 18.2766C22.2627 17.3239 21.567 16.1237 20.1754 13.7234M10.8386 19.7631L13.7564 17.5262M10.8386 19.7631L13.7564 22M18.4896 10.8154L15.507 5.6705C14.2306 3.4687 13.5924 2.36781 12.7003 2.10134C12.248 1.96622 11.7634 1.96622 11.3111 2.10134C10.419 2.36781 9.78081 3.4687 8.50438 5.6705M18.4896 10.8154L15.0117 9.50645M18.4896 10.8154L19.0588 7.27638M6.81856 8.57849L3.73542 13.8968C2.43531 16.1395 1.78525 17.2608 2.06354 18.1613C2.17186 18.5119 2.36819 18.8316 2.63534 19.0926C3.32163 19.7631 4.66018 19.7631 7.33728 19.7631M6.81856 8.57849L7.36018 12.1215M6.81856 8.57849L3.33053 9.8626" />
+                                </svg>
+                                Reset Filter
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Data Table - Using Bootstrap table with custom styling -->
+                <div class="data-container">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle" id="productCodesTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Code</th>
+                                    <th>City</th>
+                                    <th>Usage</th>
+                                    <th>Usage Count</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-type="electric" data-status="completed">
+                                    <td>00001</td>
+                                    <td>Christine Brooks</td>
+                                    <td>089 Kutch Green Apt. 448</td>
+                                    <td>04 Sep 2019</td>
+                                    <td>Electric</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>
+                                <tr data-type="book" data-status="processing">
+                                    <td>00002</td>
+                                    <td>Rosie Pearson</td>
+                                    <td>979 Immanuel Ferry Suite 526</td>
+                                    <td>28 May 2019</td>
+                                    <td>Book</td>
+                                    <td><span class="status-badge status-processing">Processing</span></td>
+                                </tr>
+                                <tr data-type="medicine" data-status="rejected">
+                                    <td>00003</td>
+                                    <td>Darrell Caldwell</td>
+                                    <td>8587 Frida Ports</td>
+                                    <td>23 Nov 2019</td>
+                                    <td>Medicine</td>
+                                    <td><span class="status-badge status-rejected">Rejected</span></td>
+                                </tr>
+                                <tr data-type="mobile" data-status="completed">
+                                    <td>00004</td>
+                                    <td>Gilbert Johnston</td>
+                                    <td>768 Destiny Lake Suite 600</td>
+                                    <td>05 Feb 2019</td>
+                                    <td>Mobile</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>
+                                <tr data-type="watch" data-status="processing">
+                                    <td>00005</td>
+                                    <td>Alan Cain</td>
+                                    <td>042 Mylene Throughway</td>
+                                    <td>29 Jul 2019</td>
+                                    <td>Watch</td>
+                                    <td><span class="status-badge status-processing">Processing</span></td>
+                                </tr>
+                                <tr data-type="medicine" data-status="completed">
+                                    <td>00006</td>
+                                    <td>Alfred Murray</td>
+                                    <td>543 Weimann Mountain</td>
+                                    <td>15 Aug 2019</td>
+                                    <td>Medicine</td>
+                                    <td><span class="status-badge status-completed">Completed</span></td>
+                                </tr>
+                                <tr data-type="watch" data-status="processing">
+                                    <td>00007</td>
+                                    <td>Maggie Sullivan</td>
+                                    <td>New Scottieberg</td>
+                                    <td>21 Dec 2019</td>
+                                    <td>Watch</td>
+                                    <td><span class="status-badge status-processing">Processing</span></td>
+                                </tr>
+                                <tr data-type="medicine" data-status="on-hold">
+                                    <td>00008</td>
+                                    <td>Rosie Todd</td>
+                                    <td>New Jon</td>
+                                    <td>30 Apr 2019</td>
+                                    <td>Medicine</td>
+                                    <td><span class="status-badge status-on-hold">On Hold</span></td>
+                                </tr>
+                                <tr data-type="book" data-status="in-transit">
+                                    <td>00009</td>
+                                    <td>Dollie Hines</td>
+                                    <td>124 Lyla Forge Suite 975</td>
+                                    <td>09 Jan 2019</td>
+                                    <td>Book</td>
+                                    <td><span class="status-badge status-in-transit">In Transit</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div
+                        class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-3 p-3 p-md-4 border-top">
+                        <span class="pagination-info">Showing <span id="showingCount">1-09</span> of <span
+                                id="totalCount">78</span></span>
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination mb-0">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous" id="prevPage">
+                                        <i class="bi bi-chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next" id="nextPage">
+                                        <i class="bi bi-chevron-right"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>

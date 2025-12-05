@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="productCode.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Language dropdown with menu -->
+                <!-- <div class="language-dropdown" id="languageDropdown">
+                    <div class="language" onclick="toggleLanguageDropdown()">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" id="currentFlag">
+                        <span id="currentLang">English</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="language-menu">
+                        <a href="#" onclick="selectLanguage('gb', 'English')">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                            English
+                        </a>
+                        <a href="#" onclick="selectLanguage('es', 'Spanish')">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Spanish Flag">
+                            Spanish
+                        </a>
+                        <a href="#" onclick="selectLanguage('fr', 'French')">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="French Flag">
+                            French
+                        </a>
+                        <a href="#" onclick="selectLanguage('de', 'German')">
+                            <img src="https://flagcdn.com/w40/de.png" alt="German Flag">
+                            German
+                        </a>
+                        <a href="#" onclick="selectLanguage('cn', 'Chinese')">
+                            <img src="https://flagcdn.com/w40/cn.png" alt="Chinese Flag">
+                            Chinese
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1">
+            <div class="container-fluid">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1 class="page-title mb-0">Create Product Codes</h1>
+
+                    <div class="action-buttons h-75">
+                        <a class="ui-btn ui-btn-dark text-decoration-none " href="productCode.html">
+                            <svg class="me-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                height="20" color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M11.5 8.45596V9L17.5 9C18.4319 9 18.8978 9 19.2654 9.15224C19.7554 9.35523 20.1448 9.74458 20.3478 10.2346C20.5 10.6022 20.5 11.0681 20.5 12C20.5 12.9319 20.5 13.3978 20.3478 13.7654C20.1448 14.2554 19.7554 14.6448 19.2654 14.8478C18.8978 15 18.4319 15 17.5 15H11.5V15.544C11.5 17.6268 11.5 18.6681 10.8997 18.9422C10.2994 19.2163 9.58174 18.5026 8.14642 17.0751L4.58281 13.5311C3.86094 12.8132 3.5 12.4542 3.5 12C3.5 11.5458 3.86094 11.1868 4.58281 10.4689L8.14643 6.92487C9.58175 5.49743 10.2994 4.78372 10.8997 5.05779C11.5 5.33185 11.5 6.37322 11.5 8.45596Z" />
+                            </svg>
+                            Back
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white data-container p-4 row">
+
+                    <ul class="nav nav-tabs custom-tabs" id="settingsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#general"
+                                type="button">General</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#product-code"
+                                type="button">Product Code</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#referral"
+                                type="button">Referral</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#redemption"
+                                type="button">Redemption</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#smtp"
+                                type="button">SMTP</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#bonus"
+                                type="button">Bonus</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#cities"
+                                type="button">Cities</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content p-4 mt-3 border rounded-3 shadow-sm bg-white">
+                        <div class="tab-pane fade show active" id="general">
+
+                            <form action="" class="row">
+
+                                <div class="mb-3 col-md-6">
+                                    <label for="code" class="form-label fw-semibold">Website Name <span
+                                            class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">🌐</span>
+                                        <input type="text" class="form-control" id="code"
+                                            placeholder="Enter Website Name" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 col-md-6">
+                                    <label for="code" class="form-label fw-semibold">Enable Email Notifications</label>
+                                    <!-- From Uiverse.io by JaydipPrajapati1910 -->
+                                    <div class="toggle-button-cover">
+                                        <div id="button-3" class="button r">
+                                            <input class="checkbox" type="checkbox">
+                                            <div class="knobs"></div>
+                                            <div class="layer"></div>
+                                        </div>
+                                    </div>
+                                    <div id="emailHelp" class="form-text">(Before enabling, make sure you have added valid SMTP configurations in the SMTP tab.) *</div>
+                                </div>
+
+                            </form>
+
+
+                        </div>
+                        <div class="tab-pane fade" id="product-code">Product Code content...</div>
+                        <div class="tab-pane fade" id="referral">Referral content...</div>
+                        <div class="tab-pane fade" id="redemption">Redemption content...</div>
+                        <div class="tab-pane fade" id="smtp">SMTP content...</div>
+                        <div class="tab-pane fade" id="bonus">Bonus content...</div>
+                        <div class="tab-pane fade" id="cities">Cities content...</div>
+                    </div>
+
+
+                </div>
+            </div>
+        </main>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
