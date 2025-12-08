@@ -235,7 +235,7 @@
 
                     <ul class="nav nav-tabs custom-tabs" id="settingsTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#general"
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#general"
                                 type="button">General</button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -255,7 +255,7 @@
                                 type="button">SMTP</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#bonus"
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#bonus"
                                 type="button">Bonus</button>
                         </li>
                         <li class="nav-item" role="presentation">
@@ -264,8 +264,11 @@
                         </li>
                     </ul>
 
-                    <div class="tab-content p-4 mt-3 border rounded-3 shadow-sm bg-white">
-                        <div class="tab-pane fade show active" id="general">
+                    <div class="tab-content py-4 mt-3 ">
+                        <div class="tab-pane fade " id="general">
+                            <!-- <div class="rounded shadow-sm px-3 py-2 mb-4" > -->
+                            <!-- <h1 class="section-title mb-3">General</h1> -->
+                            <!-- </div> -->
 
                             <form action="" class="row">
 
@@ -279,9 +282,12 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 col-md-6">
-                                    <label for="code" class="form-label fw-semibold">Website Name <span
+                                    <label for="code" class="form-label fw-semibold">Logo <span
                                             class="text-danger">*</span></label>
-                                    <input class="form-control" type="file" id="formFile">
+                                    <div class="input-group mb-3">
+                                        <input type="file" class="form-control" id="inputGroupFile02">
+                                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                    </div>
                                 </div>
 
                                 <div class="mb-4 col-md-6">
@@ -300,13 +306,201 @@
 
                             </form>
 
-
+                            <button class="ui-btn ui-btn-primary">
+                                <svg class="me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                                    height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg>
+                                Save Changes
+                            </button>
                         </div>
                         <div class="tab-pane fade" id="product-code">Product Code content...</div>
-                        <div class="tab-pane fade" id="referral">Referral content...</div>
+                        <div class="tab-pane fade" id="referral">
+                            <!-- <h1 class="section-title">Referral</h1> -->
+
+                            <div>
+                                <div class="col-12">
+                                    <div class="instruction-card referral-card">
+                                        <h6 class="instruction-title">
+                                            <i class="bi bi-people"></i> Referral System Instructions
+                                        </h6>
+
+                                        <ul>
+                                            <li>
+                                                <b>Enable Referral System:</b> Set to <b>Enabled</b> to activate
+                                                referrals.
+                                                When set to <b>Disabled</b>, users may still enter referral codes,
+                                                but no bonuses will be awarded.
+                                            </li>
+
+                                            <li>
+                                                <b>Referral Bonus Points:</b> Must be greater than <b>0</b>.
+                                                Values <b>0 or below</b> disable bonus distribution.
+                                            </li>
+
+                                            <li>
+                                                <b>Max Referral Bonus Levels:</b> Defines how many levels receive
+                                                rewards.
+                                                Must be at least <b>1</b>. Setting it to <b>0</b> disables multi-level
+                                                rewards.
+                                            </li>
+
+                                            <li>
+                                                <b>Referral Bonus Decay Percent:</b> Controls how much the bonus reduces
+                                                per level.
+                                                Must be greater than <b>0</b>. If set to <b>0</b>, only level-1 receives
+                                                a bonus.
+                                            </li>
+                                        </ul>
+
+                                        <p class="referral-note">
+                                            All values must be valid. Zero or invalid values will prevent the referral
+                                            system from functioning.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <form class="col-12 mt-4">
+                                    <button class="ui-btn ui-btn-primary">
+                                        <svg class="me-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                            width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 5v14M5 12h14" />
+                                        </svg>
+                                        Save Changes
+                                    </button>
+                                </form>
+                            </div>
+
+                        </div>
                         <div class="tab-pane fade" id="redemption">Redemption content...</div>
                         <div class="tab-pane fade" id="smtp">SMTP content...</div>
-                        <div class="tab-pane fade" id="bonus">Bonus content...</div>
+                        <div class="tab-pane fade show active" id="bonus">
+
+                            <div class="container " id="bonusRulesPanel">
+
+                                <div class="d-flex justify-content-between mb-3">
+                                    <div>
+                                        <h4 class="fw-semibold mb-2">Bonus Rules</h4>
+                                        <p class="text-muted ">Manage how users earn and redeem points.</p>
+                                    </div>
+
+
+                                </div>
+
+                                <!-- Rules Container -->
+                                <div id="rulesContainer"></div>
+                                <!-- Add Rule -->
+                                <div class="d-flex gap-2 justify-content-between">
+
+                                    <button id="addRuleBtn" class="ui-btn ui-btn-secondary ">
+                                        + Add New Rule
+                                    </button>
+
+                                    <button id="saveRulesBtn" class="ui-btn ui-btn-primary px-4">Save All</button>
+
+                                </div>
+                            </div>
+
+
+                            <script>
+                                const initialRules = [
+                                    { title: "Earn Points on Referrals", description: "You will earn bonus points when someone registers using your referral code." },
+                                    { title: "Referral Bonus Reduces by Level", description: "Each level in the referral chain receives a reduced percentage of the base referral bonus." },
+                                    { title: "Redeem Points for Rewards", description: "You can redeem your earned points once you reach the minimum threshold." },
+                                    { title: "Earn Points by Scanning Product Codes", description: "Scan valid product codes to receive bonus points added to your account." },
+                                    { title: "Lifetime Points Tracking", description: "Points are tracked for lifetime achievements even after spending." }
+                                ];
+
+                                const rulesContainer = document.getElementById("rulesContainer");
+
+                                function renderRules() {
+                                    rulesContainer.innerHTML = "";
+                                    initialRules.forEach((rule, index) => {
+                                        rulesContainer.appendChild(createRuleCard(rule, index));
+                                    });
+                                }
+
+                                function createRuleCard(rule, index) {
+                                    const wrapper = document.createElement("div");
+                                    wrapper.className = "rule-card";
+
+                                    wrapper.innerHTML = `
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="rule-index "> #${index + 1}</span>
+                                         <div class="rule-remove">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#d0021b" fill="none" stroke="#d0021b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.00012C17.5228 2.00012 22 6.47727 22 12.0001C22 17.523 17.5228 22.0001 12 22.0001C6.47715 22.0001 2 17.523 2 12.0001M8.909 2.48699C7.9 2.8146 6.96135 3.29828 6.12153 3.90953M3.90943 6.12162C3.29806 6.9616 2.81432 7.90044 2.4867 8.90964" />
+    <path d="M14.9994 15.0001L9 9.00012M9.00064 15.0001L15 9.00012" />
+</svg>
+                                                                </div>
+                                        </div>
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="d-flex align-items-center w-100">
+                                        <div class="mb-3 w-100">
+                                    <label for="code" class="form-label fw-semibold">Rule Title</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                    <img src="./assets/images/compliant.png" alt="" width="24" height="24" >
+                                            </span>
+                                        <input type="text" class="form-control" id="code" value="${rule.title}"
+                                            placeholder="Rule Title" required>
+                                    </div>
+                                </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                      <div class="mb-3 w-100">
+                                    <label for="code" class="form-label fw-semibold mb-0">Explain</label>
+                                    <div class="mb-3">
+                                        <textarea class="form-control form-control-sm mt-2" rows="2"
+                                            placeholder="Description">${rule.description}</textarea>
+                                    </div>
+                                </div>
+                                    `;
+
+                                    // Remove rule
+                                    wrapper.querySelector(".rule-remove").onclick = () => {
+                                        initialRules.splice(index, 1);
+                                        renderRules();
+                                    };
+
+                                    return wrapper;
+                                }
+
+                                // Add Rule
+                                document.getElementById("addRuleBtn").onclick = () => {
+                                    initialRules.push({ title: "", description: "" });
+                                    renderRules();
+                                };
+
+                                // Save All
+                                document.getElementById("saveRulesBtn").onclick = () => {
+                                    const data = [];
+
+                                    [...rulesContainer.children].forEach((card, i) => {
+                                        const title = card.querySelector("input").value.trim();
+                                        const description = card.querySelector("textarea").value.trim();
+
+                                        if (!title) {
+                                            alert(`Rule #${i + 1} must have a title`);
+                                            return;
+                                        }
+
+                                        data.push({ order: i + 1, title, description });
+                                    });
+
+                                    console.log("Saved Rules:", data);
+                                    alert("Rules saved (check console)");
+                                };
+
+                                renderRules();
+                            </script>
+
+
+                        </div>
                         <div class="tab-pane fade" id="cities">Cities content...</div>
                     </div>
 

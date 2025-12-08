@@ -70,7 +70,7 @@ body {
     gap: 20px;
 }
 
-.logo{
+.logo {
     height: 36px;
     width: auto;
 }
@@ -1393,4 +1393,64 @@ input:checked+.gray {
 /* Container shadow */
 .tab-content {
     border-top: none !important;
+}
+
+/* input[type=file]::file-selector-button {
+    border: none;
+    background: var(--primary-color-dark);
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+    padding: 10px 20px;
+}
+
+input[type=file]::file-selector-button:hover {
+    background: var(--primary-color) !important;
+} */
+
+.rule-card {
+    background: #fff !important;
+    border: 1px solid #e4e6eb;
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    position: relative;
+    margin-bottom: 36px;
+    z-index: 50 !important;
+}
+
+.rule-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+.rule-index {
+    width: 32px;
+    height: 24px;
+    background: var(--btn-info-hover);
+    color: var(--bg-color);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.rule-remove {
+    font-size: 13px;
+    /* background-color: var(--btn-danger); */
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 10px ;
+    z-index: 10;
+    /* opacity: 0; */
+    transition: opacity 1s ease;
+}
+
+/* Reveal on hover */
+.rule-card:hover .rule-remove {
+    opacity: 1;
 }
