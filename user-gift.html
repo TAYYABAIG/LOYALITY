@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="user-point-rules.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Points Rules</span>
+                </a>
+                <div class="menu-tooltip">Points Rule</div>
+            </li>
+            <li>
+                <a href="user-redeem-points.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Redeem Points</span>
+                </a>
+                <div class="menu-tooltip">Redeem Points</div>
+            </li>
+            <li>
+                <a href="productCode.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Language dropdown with menu -->
+                <!-- <div class="language-dropdown" id="languageDropdown">
+                    <div class="language" onclick="toggleLanguageDropdown()">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" id="currentFlag">
+                        <span id="currentLang">English</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="language-menu">
+                        <a href="#" onclick="selectLanguage('gb', 'English')">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                            English
+                        </a>
+                        <a href="#" onclick="selectLanguage('es', 'Spanish')">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Spanish Flag">
+                            Spanish
+                        </a>
+                        <a href="#" onclick="selectLanguage('fr', 'French')">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="French Flag">
+                            French
+                        </a>
+                        <a href="#" onclick="selectLanguage('de', 'German')">
+                            <img src="https://flagcdn.com/w40/de.png" alt="German Flag">
+                            German
+                        </a>
+                        <a href="#" onclick="selectLanguage('cn', 'Chinese')">
+                            <img src="https://flagcdn.com/w40/cn.png" alt="Chinese Flag">
+                            Chinese
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1 p-0">
+            <div class="container-fluid">
+
+                <section class="product-grid-section my-5">
+                    <div class="container">
+                        <div class="title-section">
+                            <h2 class="section-title">Latest Drop</h2>
+                        </div>
+                        <div class="subtitle-section">
+                            <p class="section-subtitle">Grab our freshest designs before they sell out!</p>
+                        </div>
+                        <div class="product-grid">
+
+
+                            <!--   Products     -->
+
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <!-- design line -->
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line left">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+                                    class="product-svg vertical-line right">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+                                    </path>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8"
+                                    class="product-svg top horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <!-- design line -->
+                                <div class="product-details ">
+                                    <div class="product-price">
+                                        <Span>QTY:</Span>
+                                        <span>3</span>
+                                    </div>
+                                    <div class="product-rating"><span class="badge rounded-pill text-bg-success" style="font-size: 12px;">⭐ 30 Points</span></div>
+                                </div>
+                                <div class="product-image-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306"
+                                        preserveAspectRatio="none" class="scribble-svg">
+                                        <path class="scribble-path" filter="url(#scribble)" stroke="#f34e79"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="12"
+                                            d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                                        </path>
+                                        <filter id="scribble">
+                                            <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2"
+                                                result="noise" seed="0"></feTurbulence>
+                                            <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic"
+                                                scale="5"></feDisplacementMap>
+                                        </filter>
+                                    </svg>
+                                    <img src="https://referral.softwaresbranding.com/admin/assets/images/gifts/BluetoothSpeaker.webp"
+                                        width="150" height="300" alt="Pink Drop" class="product-image" />
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+                                    preserveAspectRatio="none" shape-rendering="crispEdges"
+                                    class="product-svg bottom horizontal-line">
+                                    <path fill="none" stroke="currentColor"
+                                        d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+                                    </path>
+                                </svg>
+                                <div class="title-wrapper">
+                                    <h3 class="product-title">Pink Drop</h3>
+                                    <!-- <p>
+                                        Portable speaker with powerful bass and 12-hour battery backup. 
+                                    </p> -->
+                                </div>
+                                <div class="product-button-wrapper">
+                                    <div class="button-outer">
+
+                                        <a href="#" class="button-middle">
+                                            <span class="button-inner">Redeem Now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <!--    End Products    -->
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+
+
+</body>
+
+</html>

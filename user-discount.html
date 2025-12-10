@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="user-point-rules.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Points Rules</span>
+                </a>
+                <div class="menu-tooltip">Points Rule</div>
+            </li>
+            <li>
+                <a href="user-redeem-points.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Redeem Points</span>
+                </a>
+                <div class="menu-tooltip">Redeem Points</div>
+            </li>
+            <li>
+                <a href="productCode.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <!-- START: Working header with notification & profile dropdowns -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger" aria-label="Toggle sidebar" role="button"
+                    tabindex="0"></i>
+                <div class="search-box" role="search" aria-label="Search">
+                    <i class="bi bi-search" aria-hidden="true"></i>
+                    <input type="text" placeholder="Search" aria-label="Search input">
+                </div>
+            </div>
+            <!-- Right Image/Cards -->
+            <div class="header-right">
+                <button class="redeem-btn" id="redeemBtn" aria-label="Redeem points">REDEEM POINTS</button>
+
+                <div class="points-box" title="Points balance">
+                    <div class="points" id="pointsValue">323 Points</div>
+                    <div class="equals">=</div>
+                    <div class="points" id="cashValue">PKR 80.75Rs</div>
+                </div>
+
+                <!-- Notification (dropdown) -->
+                <div class="dropdown notif-dropdown">
+                    <button class="btn position-relative notif-btn" type="button" id="notifBtn"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-bell fs-4"></i>
+                        <span class="notif-badge">6</span>
+                    </button>
+
+                    <div class="dropdown-menu dropdown-menu-end notif-menu" aria-labelledby="notifBtn">
+
+                        <div class="notif-item">
+                            <div class="notif-avatar">LR</div>
+                            <div class="notif-content">
+                                <div class="notif-title">Code added successfully</div>
+                                <div class="notif-line">
+                                    <span class="notif-label">Code</span>
+                                    <span class="notif-code">ZVSJPRME</span>
+                                    <span class="notif-text-muted">added successfully</span>
+                                </div>
+                                <div class="notif-time">2 days ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notif-item">
+                            <div class="notif-avatar">LR</div>
+                            <div class="notif-content">
+                                <div class="notif-title">Code added successfully</div>
+                                <div class="notif-line">
+                                    <span class="notif-label">Code</span>
+                                    <span class="notif-code">FULQXG4M</span>
+                                    <span class="notif-text-muted">added successfully</span>
+                                </div>
+                                <div class="notif-time">2 days ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notif-item">
+                            <div class="notif-avatar">LR</div>
+                            <div class="notif-content">
+                                <div class="notif-title">Code added successfully</div>
+                                <div class="notif-line">
+                                    <span class="notif-label">Code</span>
+                                    <span class="notif-code">ASKRB8S1</span>
+                                    <span class="notif-text-muted">added successfully</span>
+                                </div>
+                                <div class="notif-time">2 days ago</div>
+                            </div>
+                        </div>
+
+                        <div class="notif-footer">
+                            <a href="#" class="notif-view-all text-decoration-none">View All</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Profile (dropdown) -->
+                <div class="profile-dropdown" id="profileWrapper" style="position:relative;">
+                    <button id="userProfileBtn" class="user-profile" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="profileMenu">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+
+                    <div id="profileMenu" class="dropdown-menu-custom" role="menu" aria-labelledby="userProfileBtn"
+                        hidden>
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face"
+                                alt="User small">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+
+                        <a href="#" role="menuitem" class="dropdown-item"> My Profile</a>
+                        <a href="#" role="menuitem" class="dropdown-item">Account Settings</a>
+                        <a href="#" role="menuitem" class="dropdown-item">Help Center</a>
+                        <a href="#" role="menuitem" class="dropdown-item logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1">
+            <div class="container-fluid">
+
+                <div class="bonus-card-wrap mb-5">
+                    <section class="card bonus-card" aria-labelledby="bonusHeading">
+                        <header class="card-header d-flex align-items-center justify-content-between py-3 px-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="badge-icon d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill"
+                                    aria-hidden="true">
+                                    <i class="bi bi-gift-fill"></i>
+                                    <span class="fw-semibold">Bonus Points</span>
+                                </div>
+
+                                <div>
+                                    <h2 id="bonusHeading" class="h6 mb-0" style="font-size:var(--step-0);">Reward
+                                        Balance</h2>
+                                    <p class="mb-0 text-small"
+                                        style="color:var(--light-color); font-size:var(--step--2);">Your current rewards
+                                        and redeemable value</p>
+                                </div>
+                            </div>
+
+                            <div class="text-end">
+                                <p class="mb-0 text-small" style="color:var(--light-color);font-size:var(--step--2);">
+                                    Member Tier</p>
+                                <div class="fw-bold" style="font-size:var(--step--1);color:var(--primary-color);">Silver
+                                </div>
+                            </div>
+                        </header>
+
+                        <div class="card-body p-3 p-md-4">
+                            <div class="points-grid d-grid gap-3" role="list" aria-label="Bonus points summary">
+                                <!-- Item 1 -->
+                                <article class="points-item d-flex gap-3 p-3 align-items-start" role="listitem"
+                                    aria-label="Current Bonus Points">
+                                    <div class="points-icon d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-people-fill" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="points-content flex-grow-1">
+                                        <div class="points-title"
+                                            style="color:var(--light-color); font-size:var(--step--2);">Current Bonus
+                                            Points</div>
+                                        <div id="currentPoints" class="points-value fw-bold"
+                                            style="font-size:var(--step-1);">323</div>
+                                        <div class="points-sub"
+                                            style="color:var(--light-color); font-size:var(--step--2);">Points available
+                                            for redemption</div>
+                                    </div>
+                                </article>
+
+                                <!-- Item 2 -->
+                                <article class="points-item d-flex gap-3 p-3 align-items-start" role="listitem"
+                                    aria-label="Equivalent Value">
+                                    <div
+                                        class="points-icon d-flex align-items-center justify-content-center icon-success">
+                                        <i class="bi bi-currency-rupee" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="points-content flex-grow-1">
+                                        <div class="points-title"
+                                            style="color:var(--light-color); font-size:var(--step--2);">Equivalent Value
+                                        </div>
+                                        <div id="equivalentValue" class="points-value fw-bold"
+                                            style="font-size:var(--step-1);">80.75 Rs</div>
+                                        <div class="points-sub"
+                                            style="color:var(--light-color); font-size:var(--step--2);">Redeemable
+                                            monetary value</div>
+                                    </div>
+                                </article>
+
+                                <!-- Item 3 -->
+                                <article class="points-item d-flex gap-3 p-3 align-items-start" role="listitem"
+                                    aria-label="Conversion Rate">
+                                    <div
+                                        class="points-icon d-flex align-items-center justify-content-center icon-muted">
+                                        <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="points-content flex-grow-1">
+                                        <div class="points-title"
+                                            style="color:var(--light-color); font-size:var(--step--2);">Conversion Rate
+                                        </div>
+                                        <div id="conversionRate" class="points-value fw-bold"
+                                            style="font-size:var(--step-1);">1 Point = 0.25 Rs</div>
+                                        <div class="points-sub"
+                                            style="color:var(--light-color); font-size:var(--step--2);">Points to rupees
+                                            conversion</div>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-3 px-1">
+                                <small class="text-small"
+                                    style="color:var(--light-color); font-size:var(--step--2);">Want to redeem? <a
+                                        href="#" class="text-decoration-none" style="color:var(--primary-color);">See
+                                        redemption options</a></small>
+                                <small class="text-small"
+                                    style="color:var(--light-color); font-size:var(--step--2);">Last updated:
+                                    <strong>Today</strong></small>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div>
+                    <header class="mb-3">
+                        <h3 class="h5 mb-1" style="font-size:var(--step-1);">
+                            <i class="bi bi-tag-fill" style="color:var(--primary-color);"></i>
+                            Redeemable Discounts
+                            <small class="d-block" style="font-size:var(--step--2); color:var(--light-color);">
+                                (Below are the websites where you can redeem your points while shopping!)
+                            </small>
+                        </h3>
+                        <hr>
+                    </header>
+
+                    <section class="redeem-grid" aria-label="Redeemable websites list">
+                        <!-- Card example: copy/loop for all providers -->
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov1">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov1" class="mb-0 provider-name">Service Shoes</h4>
+                                    </div>
+                                    <div class="card-body bg-white">
+                                        <a class="d-inline-flex align-items-center provider-link"
+                                            href="https://servis.pk" target="_blank" rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://servis.pk</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov2">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov2" class="mb-0 provider-name">Tech Gadgets</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="d-inline-flex align-items-center provider-link"
+                                            href="https://saaman.pk" target="_blank" rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://saaman.pk</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- Row 2 -->
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov3">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov3" class="mb-0 provider-name">Fashion Hub</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="provider-link" href="https://fashionhub.com.pk" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://fashionhub.com.pk</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov4">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov4" class="mb-0 provider-name">eBay</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="provider-link" href="https://ebay.com" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://ebay.com</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- Row 3 -->
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov5">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov5" class="mb-0 provider-name">Walmart</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="provider-link" href="https://walmart.com" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://walmart.com</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov6">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov6" class="mb-0 provider-name">Ali Express</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="provider-link" href="https://aliexpress.com" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://aliexpress.com</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- Row 4 -->
+                            <div class="col-md-6">
+                                <article class="card provider-card h-100" aria-labelledby="prov7">
+                                    <div class="card-header d-flex align-items-center gap-3">
+                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
+                                        <h4 id="prov7" class="mb-0 provider-name">Daraz</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <a class="provider-link" href="https://daraz.pk" target="_blank"
+                                            rel="noopener noreferrer">
+                                            <i class="bi bi-link-45deg me-2"></i>
+                                            <span class="link-text">https://daraz.pk</span>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- Add more provider cards as required -->
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+    </main>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('userProfileBtn');
+            const menu = document.getElementById('profileMenu');
+
+            if (!btn || !menu) {
+                console.warn('Profile dropdown: required elements not found (userProfileBtn, profileMenu).');
+                return;
+            }
+
+            // Utility: open / close functions
+            function openMenu() {
+                menu.hidden = false;
+                btn.setAttribute('aria-expanded', 'true');
+                menu.classList.add('open'); // optional hook for animation/CSS
+                // Move focus to first focusable item inside menu (optional)
+                const first = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+                if (first) first.focus();
+            }
+
+            function closeMenu() {
+                menu.hidden = true;
+                btn.setAttribute('aria-expanded', 'false');
+                menu.classList.remove('open');
+                btn.focus();
+            }
+
+            function toggleMenu() {
+                if (menu.hidden) openMenu();
+                else closeMenu();
+            }
+
+            // Toggle on button click
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Keyboard support for the button: Enter or Space opens/toggles
+            btn.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleMenu();
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    if (menu.hidden) openMenu();
+                    const first = menu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+                    if (first) first.focus();
+                }
+            });
+
+            // Close on outside click
+            document.addEventListener('click', function (e) {
+                if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            // Close on Escape
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !menu.hidden) {
+                    closeMenu();
+                }
+            });
+
+            // Optional: close menu when any menu item clicked (useful for single-page apps)
+            menu.addEventListener('click', function (e) {
+                const target = e.target;
+                if (target.matches('a[role="menuitem"], button, [data-close-on-click]')) {
+                    closeMenu();
+                }
+            });
+
+            // Make sure menu is hidden by default if JS is enabled (prevents flash)
+            menu.hidden = true;
+            btn.setAttribute('aria-expanded', 'false');
+        })();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+
+</html>

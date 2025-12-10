@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="user-point-rules.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Points Rules</span>
+                </a>
+                <div class="menu-tooltip">Points Rule</div>
+            </li>
+            <li>
+                <a href="user-redeem-points.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Redeem Points</span>
+                </a>
+                <div class="menu-tooltip">Redeem Points</div>
+            </li>
+            <li>
+                <a href="productCode.html" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Language dropdown with menu -->
+                <!-- <div class="language-dropdown" id="languageDropdown">
+                    <div class="language" onclick="toggleLanguageDropdown()">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" id="currentFlag">
+                        <span id="currentLang">English</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <div class="language-menu">
+                        <a href="#" onclick="selectLanguage('gb', 'English')">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag">
+                            English
+                        </a>
+                        <a href="#" onclick="selectLanguage('es', 'Spanish')">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Spanish Flag">
+                            Spanish
+                        </a>
+                        <a href="#" onclick="selectLanguage('fr', 'French')">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="French Flag">
+                            French
+                        </a>
+                        <a href="#" onclick="selectLanguage('de', 'German')">
+                            <img src="https://flagcdn.com/w40/de.png" alt="German Flag">
+                            German
+                        </a>
+                        <a href="#" onclick="selectLanguage('cn', 'Chinese')">
+                            <img src="https://flagcdn.com/w40/cn.png" alt="Chinese Flag">
+                            Chinese
+                        </a>
+                    </div>
+                </div> -->
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1 p-0">
+            <div class="container-fluid px-0">
+                <header class="header-design">
+                    <div class="listar-map-button">
+                        <div class="listar-map-button-text mt-5" style="display: inline-block; opacity: 1;">
+                            <span class="icon-map2">
+                                Redeem Points </span>
+                        </div>
+                    </div>
+
+                    <div class="footer-wave"></div>
+                </header>
+                <div class="pset">
+                    <div class="container">
+                        <div class="row listar-feature-items justify-content-center">
+
+                            <div class="col-xs-12 col-sm-4 listar-feature-item-wrapper listar-feature-with-image listar-height-changed"
+                                data-aos="fade-zoom-in" data-aos-group="features" data-line-height="25.2px">
+                                <div class="listar-feature-item listar-feature-has-link">
+
+                                    <div class="listar-feature-item-inner">
+
+                                        <div class="listar-feature-right-border"></div>
+
+                                        <div class="listar-feature-block-content-wrapper">
+                                            <div class="listar-feature-icon-wrapper">
+                                                <div class="listar-feature-icon-inner">
+                                                    <div>
+                                                        <img alt="Businesses" class="listar-image-icon"
+                                                            src="./assets/images/gift.gif">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="listar-feature-content-wrapper" style="padding-top: 0px;">
+
+                                                <div class="listar-feature-item-title listar-feature-counter-added">
+                                                    <span>
+                                                        Businesses </span>
+                                                </div>
+
+                                                <div class="listar-feature-item-excerpt">
+                                                    Start publish listings to show everyone the details and goodies of
+                                                    your establishment. </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 listar-feature-item-wrapper listar-feature-with-image listar-height-changed"
+                                data-aos="fade-zoom-in" data-aos-group="features" data-line-height="25.2px">
+                                <div class="listar-feature-item listar-feature-has-link">
+
+                                    <div class="listar-feature-item-inner">
+
+                                        <div class="listar-feature-right-border"></div>
+
+                                        <div class="listar-feature-block-content-wrapper">
+                                            <div class="listar-feature-icon-wrapper">
+                                                <div class="listar-feature-icon-inner">
+                                                    <div>
+                                                        <img alt="Customers" class="listar-image-icon"
+                                                            src="./assets/images/shopping-bag.gif">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="listar-feature-content-wrapper" style="padding-top: 0px;">
+
+                                                <div class="listar-feature-item-title listar-feature-counter-added">
+                                                    <span>
+                                                        Customers </span>
+                                                </div>
+
+                                                <div class="listar-feature-item-excerpt">
+                                                    Easily find interesting places by local experts, save time by
+                                                    checking listing features. </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="listar-feature-fix-bottom-padding listar-fix-feature-arrow-button-height">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </main>
+
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+
+
+</body>
+
+</html>

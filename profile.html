@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loyalty & Referral Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts - Nunito Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- Added sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <span>Loyalty</span> & Referral
+        </div>
+
+        <ul class="sidebar-menu" id="mainMenu">
+            <li>
+                <a href="index.html" data-menu="dashboard">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <div class="menu-tooltip">Dashboard</div>
+            </li>
+            <li>
+                <a href="productCode.html" class="active" data-menu="products-code">
+                    <i class="bi bi-grid"></i>
+                    <span>Products Code</span>
+                </a>
+                <div class="menu-tooltip">Products Code</div>
+            </li>
+            <li>
+                <a href="importCode.html" data-menu="import-code">
+                    <i class="bi bi-heart"></i>
+                    <span>Import Code</span>
+                </a>
+                <div class="menu-tooltip">Import Code</div>
+            </li>
+            <li>
+                <a href="#" data-menu="redeemable-gifts">
+                    <i class="bi bi-gift"></i>
+                    <span>Redeemable Gifts</span>
+                </a>
+                <div class="menu-tooltip">Redeemable Gifts</div>
+            </li>
+            <li>
+                <a href="#" data-menu="discounted-websites">
+                    <i class="bi bi-list-ul"></i>
+                    <span>Discounted Websites</span>
+                </a>
+                <div class="menu-tooltip">Discounted Websites</div>
+            </li>
+            <li>
+                <a href="#" data-menu="product-stock">
+                    <i class="bi bi-file-text"></i>
+                    <span>Product Stock</span>
+                </a>
+                <div class="menu-tooltip">Product Stock</div>
+            </li>
+        </ul>
+
+        <div class="menu-section">PAGES</div>
+
+        <ul class="sidebar-menu" id="pagesMenu">
+            <li>
+                <a href="#" data-menu="api-clients">
+                    <i class="bi bi-building"></i>
+                    <span>API Clients</span>
+                </a>
+                <div class="menu-tooltip">API Clients</div>
+            </li>
+            <li>
+                <a href="#" data-menu="users">
+                    <i class="bi bi-people"></i>
+                    <span>Users</span>
+                </a>
+                <div class="menu-tooltip">Users</div>
+            </li>
+            <li>
+                <a href="#" data-menu="roles">
+                    <i class="bi bi-clipboard-check"></i>
+                    <span>Roles</span>
+                </a>
+                <div class="menu-tooltip">Roles</div>
+            </li>
+        </ul>
+
+        <div class="sidebar-bottom">
+            <ul class="sidebar-menu" id="bottomMenu">
+                <li>
+                    <a href="#" data-menu="settings">
+                        <i class="bi bi-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <div class="menu-tooltip">Settings</div>
+                </li>
+                <li id="side-logout">
+                    <a href="#" data-menu="logout">
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Logout</span>
+                    </a>
+                    <div class="menu-tooltip">Logout</div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <i class="bi bi-list hamburger" id="hamburger"></i>
+                <div class="search-box">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification">
+                    <i class="bi bi-bell"></i>
+                    <span class="notification-badge">6</span>
+                </div>
+
+                <!-- Profile dropdown with menu -->
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="user-profile" onclick="toggleProfileDropdown()">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                            alt="User" class="user-avatar">
+                        <div class="user-info">
+                            <h6>Moni Roy</h6>
+                            <span>Admin</span>
+                        </div>
+                        <span class="drop-arrow">
+                            <i class="bi bi-chevron-down "></i>
+                        </span>
+                    </div>
+                    <div class="profile-menu">
+                        <div class="profile-menu-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                                alt="User">
+                            <div>
+                                <h6>Moni Roy</h6>
+                                <span>moni.roy@email.com</span>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <i class="bi bi-person"></i>
+                            My Profile
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-gear"></i>
+                            Account Settings
+                        </a>
+                        <a href="#">
+                            <i class="bi bi-question-circle"></i>
+                            Help Center
+                        </a>
+                        <a href="#" class="logout">
+                            <i class="bi bi-box-arrow-left"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content-wrapper flex-grow-1">
+            <div class="container-fluid">
+                <div class="app-shell">
+
+                    <!-- top header -->
+                    <div class="page-header">
+                        <div>
+                            <h2 class="page-title">Profile</h2>
+                            <div class="small-muted">Manage user information, membership tier and points</div>
+                        </div>
+
+                        <div class="page-actions">
+                            <button class="btn-back btn btn-sm" type="button"><i class="bi bi-arrow-left"></i>
+                                Back</button>
+                            <button class="btn btn-light btn-sm" type="button"><i class="bi bi-gear"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- hero -->
+                    <section class="profile-hero improved-hero" role="region" aria-label="Profile header">
+                        <!-- left: avatar -->
+                        <div class="hero-left">
+                            <!-- Use an <img> if you have user picture; fallback to initials inside .hero-avatar-text -->
+                            <div class="hero-avatar">
+                                <!-- <img src="path/to/avatar.jpg" alt="Super Admin" /> -->
+                                <div class="hero-avatar-text" aria-hidden="true">SA</div>
+                            </div>
+
+                        </div>
+
+                        <!-- center: main details -->
+                        <div class="hero-main">
+                            <div class="hero-top-row">
+                                <div class="hero-title-wrap">
+                                    <div class="hero-title">Super Admin</div>
+                                    <div class="hero-sub">superadmin@gmail.com</div>
+
+                                    <div class="hero-meta stack-sm">
+                                        <span class="badge-tier">Silver</span>
+                                        <div class="member-meta">Member since <strong>Jan 2024</strong></div>
+                                        <div class="small-muted">Tier benefits active</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- right: actions -->
+                        <div class="hero-actions">
+                            <button class="icon-btn" type="button" aria-label="Share"><i
+                                    class="bi bi-share"></i></button>
+                            <button class="icon-btn" type="button" aria-label="Messages"><i
+                                    class="bi bi-envelope"></i></button>
+                            <button class="btn btn-primary-primary" type="button"><i
+                                    class="bi bi-pencil-fill me-2"></i>Edit
+                                Profile</button>
+                        </div>
+                    </section>
+
+
+                    <!-- lower grid -->
+                    <div class="lower-grid">
+
+                        <!-- left: personal info -->
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="info-icon"><i class="bi bi-person-fill"></i></div>
+                                    <h6 class="mb-0 fw-semibold">Personal Information</h6>
+                                </div>
+                            </div>
+
+                            <div class="info-card-body">
+
+                                <div class="info-row">
+                                    <label>Mobile</label>
+                                    <p>03585255523</p>
+                                </div>
+
+                                <div class="info-row">
+                                    <label>CNIC</label>
+                                    <p>3310852525552</p>
+                                </div>
+
+                                <div class="info-row">
+                                    <label>Gender</label>
+                                    <p>Female</p>
+                                </div>
+
+                                <div class="info-row">
+                                    <label>City</label>
+                                    <p>Faisalabad</p>
+                                </div>
+
+                                <div class="info-row">
+                                    <label>Address</label>
+                                    <p>Madina Town Faisalabad</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- middle: activity -->
+                        <div class="activity-card">
+                            <div class="activity-header">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="header-icon"><i class="bi bi-activity"></i></div>
+                                    <h6 class="mb-0 fw-semibold">Latest Activities</h6>
+                                </div>
+                            </div>
+
+                            <div class="activity-body">
+                                <p class="activity-sub">Recent user activity and audit trail.</p>
+
+                                <div class="empty-state">No activities found.</div>
+
+                                <div class="activity-footer">
+                                    <span class="small-muted">Last updated: Today</span>
+                                    <a href="#" class="small-muted">View full activity</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- right: stats -->
+                        <aside class="stats-stack">
+
+                            <div class="stat-box">
+                                <div class="stat-header">
+                                    <div class="stat-icon-circle icon-red">
+                                        <i class="bi bi-gift-fill"></i>
+                                    </div>
+                                    <span>Current Points</span>
+                                </div>
+
+                                <div class="stat-value">323</div>
+                            </div>
+
+                            <div class="stat-box">
+                                <div class="stat-header">
+                                    <div class="stat-icon-circle icon-blue">
+                                        <i class="bi bi-wallet-fill"></i>
+                                    </div>
+                                    <span>Redeemable Value</span>
+                                </div>
+
+                                <div class="stat-value">PKR 80.75</div>
+                            </div>
+
+                            <div class="stat-box">
+                                <div class="stat-header">
+                                    <div class="stat-icon-circle icon-green">
+                                        <i class="bi bi-people-fill"></i>
+                                    </div>
+                                    <span>Referred Users</span>
+                                </div>
+
+                                <div class="stat-value">0</div>
+                            </div>
+
+                        </aside>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="./assets/js/index.js"></script> -->
+</body>
+
+</html>
