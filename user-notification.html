@@ -258,243 +258,244 @@
 
 
         <!-- Main Content Area -->
-        <main class="main-content-wrapper flex-grow-1">
-            <div class="container-fluid">
+        <main class="main-content-wrapper container-fluid flex-grow-1 px-4">
 
-                <div class="bonus-card-wrap mb-5">
-                    <section class="card bonus-card" aria-labelledby="bonusHeading">
-                        <header class="card-header d-flex align-items-center justify-content-between py-3 px-4">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="badge-icon d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill"
-                                    aria-hidden="true">
-                                    <i class="bi bi-gift-fill"></i>
-                                    <span class="fw-semibold">Bonus Points</span>
-                                </div>
-
-                                <div>
-                                    <h2 id="bonusHeading" class="h6 mb-0" style="font-size:var(--step-0);">Reward
-                                        Balance</h2>
-                                    <p class="mb-0 text-small"
-                                        style="color:var(--light-color); font-size:var(--step--2);">Your current rewards
-                                        and redeemable value</p>
-                                </div>
+            <div class="ntf3-root d-flex justify-content-center bg-transparent">
+                <div class="ntf3-card" role="region" aria-label="Notifications">
+                    <div class="ntf3-card-header" >
+                        <!-- header -->
+                        <div class="ntf3-header d-flex align-items-start justify-content-between">
+                            <div>
+                                <h2 class="ntf3-title">Notification</h2>
+                                <div class="ntf3-sub">Stay Update With Your Latest Notifications</div>
                             </div>
 
-                            <div class="text-end">
-                                <p class="mb-0 text-small" style="color:var(--light-color);font-size:var(--step--2);">
-                                    Member Tier</p>
-                                <div class="fw-bold" style="font-size:var(--step--1);color:var(--primary-color);">Silver
-                                </div>
-                            </div>
-                        </header>
+                            <div class="ntf3-header-controls d-flex align-items-start gap-2">
+                                <!-- small action icons -->
+                                <button class="ntf3-icon-btn" title="Export">
+                                    <!-- simple export svg -->
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M12 3v12" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M5 10l7-7 7 7" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M21 21H3" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </button>
 
-                        <div class="card-body p-3 p-md-4">
-                            <div class="points-grid d-grid gap-3" role="list" aria-label="Bonus points summary">
-                                <!-- Item 1 -->
-                                <article class="points-item d-flex gap-3 p-3 align-items-start" role="listitem"
-                                    aria-label="Current Bonus Points">
-                                    <div class="points-icon d-flex align-items-center justify-content-center">
-                                        <i class="bi bi-people-fill" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="points-content flex-grow-1">
-                                        <div class="points-title"
-                                            style="color:var(--light-color); font-size:var(--step--2);">Current Bonus
-                                            Points</div>
-                                        <div id="currentPoints" class="points-value fw-bold"
-                                            style="font-size:var(--step-1);">323</div>
-                                        <div class="points-sub"
-                                            style="color:var(--light-color); font-size:var(--step--2);">Points available
-                                            for redemption</div>
-                                    </div>
-                                </article>
-
-                                <!-- Item 2 -->
-                                <article class="points-item d-flex gap-3 p-3 align-items-start" role="listitem"
-                                    aria-label="Equivalent Value">
-                                    <div
-                                        class="points-icon d-flex align-items-center justify-content-center icon-success">
-                                        <i class="bi bi-currency-rupee" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="points-content flex-grow-1">
-                                        <div class="points-title"
-                                            style="color:var(--light-color); font-size:var(--step--2);">Equivalent Value
-                                        </div>
-                                        <div id="equivalentValue" class="points-value fw-bold"
-                                            style="font-size:var(--step-1);">80.75 Rs</div>
-                                        <div class="points-sub"
-                                            style="color:var(--light-color); font-size:var(--step--2);">Redeemable
-                                            monetary value</div>
-                                    </div>
-                                </article>
-
-                                <!-- Item 3 -->
-                                <article class="points-item d-flex gap-3 p-3 align-items-start" role="listitem"
-                                    aria-label="Conversion Rate">
-                                    <div
-                                        class="points-icon d-flex align-items-center justify-content-center icon-muted">
-                                        <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="points-content flex-grow-1">
-                                        <div class="points-title"
-                                            style="color:var(--light-color); font-size:var(--step--2);">Conversion Rate
-                                        </div>
-                                        <div id="conversionRate" class="points-value fw-bold"
-                                            style="font-size:var(--step-1);">1 Point = 0.25 Rs</div>
-                                        <div class="points-sub"
-                                            style="color:var(--light-color); font-size:var(--step--2);">Points to rupees
-                                            conversion</div>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center mt-3 px-1">
-                                <small class="text-small"
-                                    style="color:var(--light-color); font-size:var(--step--2);">Want to redeem? <a
-                                        href="#" class="text-decoration-none" style="color:var(--primary-color);">See
-                                        redemption options</a></small>
-                                <small class="text-small"
-                                    style="color:var(--light-color); font-size:var(--step--2);">Last updated:
-                                    <strong>Today</strong></small>
+                                <button class="ntf3-icon-btn" title="Clear all">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+                                        color="#d0021b" fill="none" stroke="#d0021b" stroke-width="1.5"
+                                        stroke-linecap="round">
+                                        <path
+                                            d="M19.5 5.5L18.8803 15.5251C18.7219 18.0864 18.6428 19.3671 18.0008 20.2879C17.6833 20.7431 17.2747 21.1273 16.8007 21.416C15.8421 22 14.559 22 11.9927 22C9.42312 22 8.1383 22 7.17905 21.4149C6.7048 21.1257 6.296 20.7408 5.97868 20.2848C5.33688 19.3626 5.25945 18.0801 5.10461 15.5152L4.5 5.5" />
+                                        <path
+                                            d="M3 5.5H21M16.0557 5.5L15.3731 4.09173C14.9196 3.15626 14.6928 2.68852 14.3017 2.39681C14.215 2.3321 14.1231 2.27454 14.027 2.2247C13.5939 2 13.0741 2 12.0345 2C10.9688 2 10.436 2 9.99568 2.23412C9.8981 2.28601 9.80498 2.3459 9.71729 2.41317C9.32164 2.7167 9.10063 3.20155 8.65861 4.17126L8.05292 5.5" />
+                                        <path d="M9.5 16.5L9.5 10.5" />
+                                        <path d="M14.5 16.5L14.5 10.5" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                    </section>
-                </div>
 
-                <div>
-                    <header class="mb-3">
-                        <h3 class="h5 mb-1" style="font-size:var(--step-1);">
-                            <i class="bi bi-tag-fill" style="color:var(--primary-color);"></i>
-                            Redeemable Discounts
-                            <small class="d-block" style="font-size:var(--step--2); color:var(--light-color);">
-                                (Below are the websites where you can redeem your points while shopping!)
-                            </small>
-                        </h3>
-                        <hr>
-                    </header>
+                        <!-- tabs / controls -->
+                        <div class="ntf3-tabs d-flex align-items-center justify-content-between mt-3">
+                            <ul class="ntf3-tablist nav" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active ntf3-tab" data-target="all" type="button">All <span
+                                            class="ntf3-tab-badge">6</span></button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link ntf3-tab" data-target="payments"
+                                        type="button">Payments</button>
+                                </li>
+                            </ul>
 
-                    <section class="redeem-grid" aria-label="Redeemable websites list">
-                        <!-- Card example: copy/loop for all providers -->
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov1">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov1" class="mb-0 provider-name">Service Shoes</h4>
-                                    </div>
-                                    <div class="card-body bg-white">
-                                        <a class="d-inline-flex align-items-center provider-link"
-                                            href="https://servis.pk" target="_blank" rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://servis.pk</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov2">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov2" class="mb-0 provider-name">Tech Gadgets</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a class="d-inline-flex align-items-center provider-link"
-                                            href="https://saaman.pk" target="_blank" rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://saaman.pk</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <!-- Row 2 -->
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov3">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov3" class="mb-0 provider-name">Fashion Hub</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a class="provider-link" href="https://fashionhub.com.pk" target="_blank"
-                                            rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://fashionhub.com.pk</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov4">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov4" class="mb-0 provider-name">eBay</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a class="provider-link" href="https://ebay.com" target="_blank"
-                                            rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://ebay.com</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <!-- Row 3 -->
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov5">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov5" class="mb-0 provider-name">Walmart</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a class="provider-link" href="https://walmart.com" target="_blank"
-                                            rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://walmart.com</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov6">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov6" class="mb-0 provider-name">Ali Express</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a class="provider-link" href="https://aliexpress.com" target="_blank"
-                                            rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://aliexpress.com</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <!-- Row 4 -->
-                            <div class="col-md-6">
-                                <article class="card provider-card h-100" aria-labelledby="prov7">
-                                    <div class="card-header d-flex align-items-center gap-3">
-                                        <span class="provider-badge"><i class="bi bi-globe2"></i></span>
-                                        <h4 id="prov7" class="mb-0 provider-name">Daraz</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <a class="provider-link" href="https://daraz.pk" target="_blank"
-                                            rel="noopener noreferrer">
-                                            <i class="bi bi-link-45deg me-2"></i>
-                                            <span class="link-text">https://daraz.pk</span>
-                                        </a>
-                                    </div>
-                                </article>
-                            </div>
-
-                            <!-- Add more provider cards as required -->
+                            <button class="ntf3-markall" id="ntf3-markAll"><span class="ntf3-check">✓</span> Mark all as
+                                read</button>
                         </div>
-                    </section>
+                    </div>
+
+                    <!-- list container -->
+                    <div class="ntf3-list" id="ntf3-list">
+
+                        <!-- Today heading -->
+                        <div class="ntf3-section">
+                            <div class="ntf3-section-title">Today</div>
+
+                            <!-- item -->
+                            <article class="ntf3-item ntf3-unread" data-id="1" data-type="all">
+                                <div class="ntf3-left">
+                                    <img class="ntf3-avatar" src="https://i.pravatar.cc/48?img=12" alt="avatar">
+                                    <span class="ntf3-status-dot bg-success"></span>
+                                </div>
+
+                                <div class="ntf3-content">
+                                    <div class="ntf3-row">
+                                        <div class="ntf3-heading">Courtney booked a haircut with Barber Mike for</div>
+                                        <div class="ntf3-meta">2:00 PM</div>
+                                    </div>
+                                    <div class="ntf3-subline">
+                                        <small class="text-muted">New Bookings • Feb 12, 2025</small>
+                                    </div>
+                                </div>
+
+                                <div class="ntf3-actions">
+                                    <button class="ntf3-small-btn" data-action="view">View</button>
+                                    <button class="ntf3-small-btn ntf3-small-btn-danger" data-action="mark">Mark
+                                        read</button>
+                                </div>
+                            </article>
+
+                            <!-- item -->
+                            <article class="ntf3-item" data-id="2" data-type="all payments">
+                                <div class="ntf3-left">
+                                    <img class="ntf3-avatar" src="https://i.pravatar.cc/48?img=6" alt="avatar">
+                                    <span class="ntf3-status-dot bg-warning"></span>
+                                </div>
+
+                                <div class="ntf3-content">
+                                    <div class="ntf3-row">
+                                        <div class="ntf3-heading">Smith booked a haircut with Barber...</div>
+                                        <div class="ntf3-meta">1:45 PM</div>
+                                    </div>
+                                    <div class="ntf3-subline">
+                                        <small class="text-muted">Rescheduled • Mar 14, 2025</small>
+                                    </div>
+                                </div>
+
+                                <div class="ntf3-actions">
+                                    <button class="ntf3-small-btn" data-action="view">View</button>
+                                    <button class="ntf3-small-btn" data-action="mark">Mark read</button>
+                                </div>
+                            </article>
+
+                            <!-- item -->
+                            <article class="ntf3-item ntf3-unread" data-id="3" data-type="all">
+                                <div class="ntf3-left">
+                                    <img class="ntf3-avatar" src="https://i.pravatar.cc/48?img=8" alt="avatar">
+                                    <span class="ntf3-status-dot bg-success"></span>
+                                </div>
+
+                                <div class="ntf3-content">
+                                    <div class="ntf3-row">
+                                        <div class="ntf3-heading">John Doe new barber a haircut with Barber
+                                            registrations</div>
+                                        <div class="ntf3-meta">10:00 AM</div>
+                                    </div>
+                                    <div class="ntf3-subline">
+                                        <small class="text-muted">New barber registrations • Feb 12, 2025</small>
+                                    </div>
+                                </div>
+
+                                <div class="ntf3-actions">
+                                    <button class="ntf3-small-btn" data-action="view">View</button>
+                                    <button class="ntf3-small-btn" data-action="mark">Mark read</button>
+                                </div>
+                            </article>
+
+                        </div> <!-- /Today -->
+
+                        <!-- Yesterday heading -->
+                        <div class="ntf3-section">
+                            <div class="ntf3-section-title">Yesterdays</div>
+
+                            <article class="ntf3-item" data-id="4" data-type="all payments">
+                                <div class="ntf3-left">
+                                    <img class="ntf3-avatar" src="https://i.pravatar.cc/48?img=3" alt="avatar">
+                                    <span class="ntf3-status-dot bg-success"></span>
+                                </div>
+
+                                <div class="ntf3-content">
+                                    <div class="ntf3-row">
+                                        <div class="ntf3-heading">Sarah Johnson booked a Beard Trim with Barber Alex for
+                                        </div>
+                                        <div class="ntf3-meta">9:00 AM</div>
+                                    </div>
+                                    <div class="ntf3-subline">
+                                        <small class="text-muted">New Bookings • Feb 12, 2025</small>
+                                    </div>
+                                </div>
+
+                                <div class="ntf3-actions">
+                                    <button class="ntf3-small-btn" data-action="view">View</button>
+                                    <button class="ntf3-small-btn" data-action="mark">Mark read</button>
+                                </div>
+                            </article>
+
+                            <article class="ntf3-item" data-id="5" data-type="all">
+                                <div class="ntf3-left">
+                                    <img class="ntf3-avatar" src="https://i.pravatar.cc/48?img=5" alt="avatar">
+                                    <span class="ntf3-status-dot bg-success"></span>
+                                </div>
+
+                                <div class="ntf3-content">
+                                    <div class="ntf3-row">
+                                        <div class="ntf3-heading">David Miller scheduled a Fade Cut with Barber Chris
+                                            for</div>
+                                        <div class="ntf3-meta">10:00 AM</div>
+                                    </div>
+                                    <div class="ntf3-subline">
+                                        <small class="text-muted">New Bookings • Feb 12, 2025</small>
+                                    </div>
+                                </div>
+
+                                <div class="ntf3-actions">
+                                    <button class="ntf3-small-btn" data-action="view">View</button>
+                                    <button class="ntf3-small-btn" data-action="mark">Mark read</button>
+                                </div>
+                            </article>
+
+                        </div> <!-- /Yesterday -->
+                    </div> <!-- /list -->
                 </div>
             </div>
+
+
+
+            <script>
+                /* Minimal JS for tabs and mark-all / per-item mark-read */
+                (function () {
+                    const tabs = document.querySelectorAll('.ntf3-tab');
+                    const markAllBtn = document.getElementById('ntf3-markAll');
+                    const list = document.getElementById('ntf3-list');
+
+                    // tab switching (filter by data-target)
+                    tabs.forEach(t => t.addEventListener('click', () => {
+                        tabs.forEach(x => x.classList.remove('active'));
+                        t.classList.add('active');
+                        const target = t.getAttribute('data-target'); // e.g. 'all' or 'payments'
+                        // show/hide items based on data-type attribute
+                        const items = list.querySelectorAll('.ntf3-item');
+                        items.forEach(it => {
+                            if (target === 'all') { it.style.display = ''; return; }
+                            const types = it.getAttribute('data-type') || '';
+                            it.style.display = types.split(' ').includes(target) ? '' : 'none';
+                        });
+                    }));
+
+                    // mark individual item read
+                    list.addEventListener('click', (e) => {
+                        const btn = e.target.closest('[data-action="mark"]');
+                        if (!btn) return;
+                        const article = btn.closest('.ntf3-item');
+                        if (!article) return;
+                        article.classList.remove('ntf3-unread');
+                    });
+
+                    // mark all read
+                    if (markAllBtn) {
+                        markAllBtn.addEventListener('click', () => {
+                            document.querySelectorAll('.ntf3-item.ntf3-unread').forEach(a => a.classList.remove('ntf3-unread'));
+                            // show a small confirmation (temporary)
+                            markAllBtn.textContent = 'All marked';
+                            setTimeout(() => markAllBtn.textContent = 'Mark all as read', 1500);
+                        });
+                    }
+                })();
+            </script>
+
         </main>
 
     </main>
