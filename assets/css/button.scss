@@ -1,0 +1,419 @@
+:root {
+    --primary-color: #EF3826;
+    --primary-color-dark: #FF0000;
+
+    --secondary-color: #1C2434;
+    --secondary-color-dark: #131A27;
+    --bs-accord-active-bg: #fecaca;
+    --light-color: #94A3B8;
+    --light-color-dark: #fef2f2;
+    --border-cl: #dde2f3;
+    --bg-color: #F5F6FA;
+    --input-bg-color: #fff;
+    --text-color: #64748B;
+    --text-color-dark: #1C2434;
+    --tabel-td-cl: #f1f5f9;
+    --btn-success: #22c55e;
+
+    --btn-success-hover: #16a34a;
+    --ui-inactive: #ccc;
+    --ui-active: #ebf7fc;
+    --btn-warning: #f97316;
+    --btn-warning-hover: #ea580c;
+
+    --btn-danger: #ef4444;
+    --btn-danger-hover: #dc2626;
+
+    --btn-info: #3A86FF;
+    --btn-info-hover: #1667E8;
+
+    --sidebar-width: 275px;
+
+    /* UNIVERSAL BUTTON COLORS */
+    --btn-primary: var(--primary-color);
+    --btn-primary-hover: var(--primary-color-dark);
+
+    --btn-secondary: var(--secondary-color);
+    --btn-secondary-hover: var(--secondary-color-dark);
+
+
+    --brand-blue: #4876ff;
+    --brand-lime: #d9f154;
+    --brand-navy: #2e3192;
+    --brand-orange: #ff7347;
+    --brand-pink: #f7d0e9;
+    --brand-purple: #692e54;
+    --brand-gray: #fffdf9;
+
+    /*  Fluid Typography  */
+    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+    --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+    --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+    --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+    --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+    --step-6: clamp(3.3592rem, 2.8691rem + 2.4507vw, 4.7684rem);
+
+    --gradient-primary: linear-gradient(180deg, rgba(239, 56, 38, 0.06), rgba(239, 56, 38, 0.02));
+
+}
+
+.ui-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    font-weight: 500;
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    line-height: 1;
+    white-space: nowrap;
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
+}
+
+// size variants
+
+.ui-btn-sm {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.875rem;
+}
+
+.ui-btn-md {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 0.95rem;
+}
+
+.ui-btn-lg {
+    height: 48px;
+    padding: 0 20px;
+    font-size: 1rem;
+}
+
+
+// solid buttons
+.ui-btn-primary {
+    background: var(--btn-primary);
+    color: #fff;
+}
+
+.ui-btn-primary:hover {
+    background: var(--btn-primary-hover);
+}
+
+.ui-btn-secondary {
+    background: var(--btn-secondary);
+    color: #fff;
+}
+
+.ui-btn-secondary:hover {
+    background: var(--btn-secondary-hover);
+}
+
+.ui-btn-success {
+    background: var(--btn-success);
+    color: #fff;
+}
+
+.ui-btn-success:hover {
+    background: var(--btn-success-hover);
+}
+
+.ui-btn-warning {
+    background: var(--btn-warning);
+    color: #fff;
+}
+
+.ui-btn-warning:hover {
+    background: var(--btn-warning-hover);
+}
+
+.ui-btn-danger {
+    background: var(--btn-danger);
+    color: #fff;
+}
+
+.ui-btn-danger:hover {
+    background: var(--btn-danger-hover);
+}
+
+.ui-btn-info {
+    background: var(--btn-info);
+    color: #fff;
+}
+
+.ui-btn-info:hover {
+    background: var(--btn-info-hover);
+}
+
+// outline buttons
+.ui-btn-outline {
+    background: transparent;
+}
+
+.ui-btn-outline.ui-btn-primary {
+    border-color: var(--btn-primary);
+    color: var(--btn-primary);
+}
+
+.ui-btn-outline.ui-btn-primary:hover {
+    background: var(--btn-primary);
+    color: #fff;
+}
+
+.ui-btn-outline.ui-btn-secondary {
+    border-color: var(--btn-secondary);
+    color: var(--btn-secondary);
+}
+
+.ui-btn-outline.ui-btn-secondary:hover {
+    background: var(--btn-secondary);
+    color: #fff;
+}
+
+/* repeat pattern */
+.ui-btn-outline.ui-btn-success {
+    border-color: var(--btn-success);
+    color: var(--btn-success);
+}
+
+.ui-btn-outline.ui-btn-success:hover {
+    background: var(--btn-success);
+    color: #fff;
+}
+
+.ui-btn-outline.ui-btn-warning {
+    border-color: var(--btn-warning);
+    color: var(--btn-warning);
+}
+
+.ui-btn-outline.ui-btn-warning:hover {
+    background: var(--btn-warning);
+    color: #fff;
+}
+
+.ui-btn-outline.ui-btn-danger {
+    border-color: var(--btn-danger);
+    color: var(--btn-danger);
+}
+
+.ui-btn-outline.ui-btn-danger:hover {
+    background: var(--btn-danger);
+    color: #fff;
+}
+
+.ui-btn-outline.ui-btn-info {
+    border-color: var(--btn-info);
+    color: var(--btn-info);
+}
+
+.ui-btn-outline.ui-btn-info:hover {
+    background: var(--btn-info);
+    color: #fff;
+}
+
+
+// ghost buttons
+.ui-btn-ghost {
+    background: transparent;
+    border-color: transparent;
+}
+
+.ui-btn-ghost.ui-btn-primary {
+    color: var(--btn-primary);
+}
+
+.ui-btn-ghost.ui-btn-primary:hover {
+    background: rgba(239, 56, 38, 0.08);
+}
+
+.ui-btn-ghost.ui-btn-secondary {
+    color: var(--btn-secondary);
+}
+
+.ui-btn-ghost.ui-btn-secondary:hover {
+    background: rgba(28, 36, 52, 0.08);
+}
+
+/* repeat for success, warning, danger, info */
+
+// soft buttons
+.ui-btn-soft {
+    border-color: transparent;
+}
+
+.ui-btn-soft.ui-btn-primary {
+    background: rgba(239, 56, 38, 0.12);
+    color: var(--btn-primary);
+}
+
+.ui-btn-soft.ui-btn-primary:hover {
+    background: rgba(239, 56, 38, 0.18);
+}
+
+.ui-btn-soft.ui-btn-success {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--btn-success);
+}
+
+.ui-btn-soft.ui-btn-success:hover {
+    background: rgba(34, 197, 94, 0.22);
+}
+
+/* repeat for warning, danger, info */
+
+// disabled state
+.ui-btn:disabled,
+.ui-btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+// badges
+.ui-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 999px;
+    white-space: nowrap;
+
+    border: 1px solid transparent;
+}
+
+// badge sizes 
+.ui-badge-sm {
+    height: 18px;
+    padding: 0 6px;
+    font-size: 11px;
+}
+
+.ui-badge-md {
+    height: 22px;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+.ui-badge-lg {
+    height: 26px;
+    padding: 0 10px;
+    font-size: 13px;
+}
+
+// solid
+.ui-badge-primary {
+    background: var(--btn-primary);
+    color: #fff;
+}
+
+.ui-badge-secondary {
+    background: var(--btn-secondary);
+    color: #fff;
+}
+
+.ui-badge-success {
+    background: var(--btn-success);
+    color: #fff;
+}
+
+.ui-badge-warning {
+    background: var(--btn-warning);
+    color: #fff;
+}
+
+.ui-badge-danger {
+    background: var(--btn-danger);
+    color: #fff;
+}
+
+.ui-badge-info {
+    background: var(--btn-info);
+    color: #fff;
+}
+
+// OUTLINE Badges
+.ui-badge-outline {
+    background: transparent;
+}
+
+.ui-badge-outline.ui-badge-primary {
+    border-color: var(--btn-primary);
+    color: var(--btn-primary);
+}
+
+.ui-badge-outline.ui-badge-secondary {
+    border-color: var(--btn-secondary);
+    color: var(--btn-secondary);
+}
+
+.ui-badge-outline.ui-badge-success {
+    border-color: var(--btn-success);
+    color: var(--btn-success);
+}
+
+.ui-badge-outline.ui-badge-warning {
+    border-color: var(--btn-warning);
+    color: var(--btn-warning);
+}
+
+.ui-badge-outline.ui-badge-danger {
+    border-color: var(--btn-danger);
+    color: var(--btn-danger);
+}
+
+.ui-badge-outline.ui-badge-info {
+    border-color: var(--btn-info);
+    color: var(--btn-info);
+}
+
+// SOFT Badges
+.ui-badge-soft.ui-badge-primary {
+    background: rgba(239, 56, 38, 0.12);
+    color: var(--btn-primary);
+}
+
+.ui-badge-soft.ui-badge-success {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--btn-success);
+}
+
+.ui-badge-soft.ui-badge-warning {
+    background: rgba(249, 115, 22, 0.15);
+    color: var(--btn-warning);
+}
+
+.ui-badge-soft.ui-badge-danger {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--btn-danger);
+}
+
+.ui-badge-soft.ui-badge-info {
+    background: rgba(58, 134, 255, 0.15);
+    color: var(--btn-info);
+}
+
+.ui-badge-soft.ui-badge-secondary {
+    background: rgba(28, 36, 52, 0.12);
+    color: var(--btn-secondary);
+}
+
+// Badge with Dot
+.ui-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
