@@ -4410,13 +4410,24 @@ a:focus {
 }
 
 .social-icons a {
+    $size: 30px;
+    background-color: var(--primary-color-dark);
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 16px;
     margin-right: 1rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $size;
+    height: $size;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .social-icons a:hover {
+    background: var(--white);
     color: var(--primary-color-dark);
 }
 
