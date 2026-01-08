@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,58 +9,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-xl navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><span class="loyalty">Loyalty &</span> Referral</a>
+            <a class="navbar-brand" href="#">
+                <span class="loyalty">Loyalty &</span> Referral
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
+
+                <!-- Close button -->
+                <button class="btn-close btn-close-white ms-auto mb-4 d-xxl-none" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Close">
+                </button>
+
+                <ul class="navbar-nav ms-auto align-items-xxl-center text-center text-xxl-start">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
                     <li class="nav-item"><a class="nav-link" href="#customers">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
                     <li class="nav-item"><a class="nav-link" href="#login">Login</a></li>
-                    <li class="nav-item"><button class="btn btn-primary-custom">Get a demo</button></li>
+                    <li class="nav-item mt-3 mt-xxl-0">
+                        <button class="btn btn-primary-custom">Get a demo</button>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+
     <!-- Hero Section -->
     <section class="hero-section" id="home">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-3">
                 <div class="col-lg-6 hero-content">
                     <p class="welcome-text">Welcome to Invictus</p>
                     <h1><span class="loyalty-text">Loyalty &</span> Referral</h1>
                     <h2>Connecting Hearts, Rewarding Loyalty</h2>
-                    <p class="description">Experience the warmth of Invictus hospitality through our innovative loyalty program. Earn rewards, refer friends, and be part of a community that values genuine connections.</p>
+                    <p class="description">Experience the warmth of Invictus hospitality through our innovative loyalty
+                        program. Earn rewards, refer friends, and be part of a community that values genuine
+                        connections.</p>
                     <button class="btn btn-primary-custom">Get a demo</button>
                 </div>
-                <div class="col-lg-6 hero-image">
+                <div class="col-lg-6 hero-image mt-5 mt-lg-0">
                     <div class="mockup-wrapper">
                         <div class="mockup-background"></div>
                         <div class="mockup-background-bottom"></div>
                         <div class="mockup-container">
-                            <div class="mockup-screen"></div>
+                            <img class="h-100 w-100 "
+                                src="./assets/images/Sandy_Tech-11_Single-03.jpg"
+                                alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <img src="./assets/images/Frame.png" alt="Pattern" class="left-design">
+        <img src="./assets/images/Frame(1).png" alt="Pattern" class="right-design">
     </section>
 
     <!-- Key Features Section -->
     <section class="features-section" id="features">
         <div class="container">
-            <h2 class="section-title"><span class="key">Key</span> Features</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
+            <h2 class="sect-title "><span class="key">Key</span> Features</h2>
+            <div class="row g-5 justify-content-center">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-users"></i>
@@ -68,7 +89,7 @@
                         <p>Manage and track all your referrals in one centralized platform for optimal performance.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-gift"></i>
@@ -77,7 +98,7 @@
                         <p>Reward your customers with points and bonuses to increase engagement and retention.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-ticket-alt"></i>
@@ -86,7 +107,7 @@
                         <p>Allow customers to redeem gifts and discounts seamlessly through your platform.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-file-export"></i>
@@ -95,7 +116,7 @@
                         <p>Easily import and export product codes for efficient inventory management.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-clipboard-list"></i>
@@ -104,7 +125,7 @@
                         <p>Comprehensive admin dashboard with detailed activity logs for complete oversight.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-database"></i>
@@ -113,7 +134,7 @@
                         <p>Secure API integration with HMAC authentication for data protection.</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4 col-xl-3">
                     <div class="feature-card">
                         <div class="feature-icon">
                             <i class="fas fa-chart-line"></i>
@@ -129,13 +150,17 @@
     <!-- Revenue Section -->
     <section class="revenue-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h2><span class="make">Make</span> better, revenue-driving decisions, faster</h2>
-                    <p>Empower your business to supercharge its marketing, generate authenticated referrals, and accelerate lead flow from existing customers.</p>
+            <div class="row justify-content-center">
+                <div class="text-center mb-4">
+                    <h2 class="text-center"><span class="make">Make</span> better, revenue-driving decisions, faster
+                    </h2>
+                    <p>Comprehensive segmentation capabilities, granular performance metrics, and customer-level
+                        insights.</p>
                 </div>
-                <div class="col-lg-6">
-                    <div class="revenue-mockup"></div>
+                <div class="col-lg-8">
+                    <div class="revenue-mockup">
+                        <img src="./assets/images/3852751.jpg" alt="">
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,7 +189,7 @@
                         <div class="step-content">Redeems for gifts or shopping discounts</div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 mt-lg-0 mt-5s">
                     <div class="diagram-placeholder"></div>
                 </div>
             </div>
@@ -186,7 +211,8 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5><span style="color: var(--primary-red);">Loyalty &</span> Referral</h5>
-                    <p class="footer-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur.</p>
+                    <p class="footer-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                        mollitia, molestiae quas vel sint commodi repudiandae consequuntur.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -211,12 +237,13 @@
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 Loyalty & Referral. All rights reserved.</p>
-            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Loyalty & Referral. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
